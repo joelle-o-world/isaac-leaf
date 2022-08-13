@@ -1,3 +1,5 @@
+<img width="490" alt="screenshot" src="https://user-images.githubusercontent.com/31676515/184508604-c8172dbd-0363-4802-85ae-46439421219d.png">
+
 # Leaf Generation for Isaac
 
 You need to install tkinter
