@@ -70,28 +70,12 @@ class LittleMan:
 
 
 
-# This is the function you want to edit to change the characteristics of the leaf!
-def extensionRule(ourLittleMan, allTheLittleMen):
-    twoGuysChillingInTheHotTub = [] # May also be 0, 1 or >2 guys
-
-    # Turn to the left
-    ourLittleMan.angle -= 30
-    firstChild = ourLittleMan.chuckAnotherLittleManAheadOfYourself(10)
-    if firstChild.proximityToNearestHeterosexual(allTheLittleMen) > 9:
-        twoGuysChillingInTheHotTub.append(firstChild)
-
-    # Turn to the right
-    ourLittleMan.angle += 60
-    secondChild = ourLittleMan.chuckAnotherLittleManAheadOfYourself(11)
-    if secondChild.proximityToNearestHeterosexual(allTheLittleMen + [firstChild]) > 9:
-        twoGuysChillingInTheHotTub.append(secondChild)
-
-    return twoGuysChillingInTheHotTub
 
 
 
 
-def generateALeaf():
+
+def generateALeaf(extensionRule):
     initialMan = LittleMan(250, 250, 0, "basic")
     lines = []
     theMen: list[LittleMan] = [initialMan]
@@ -103,7 +87,6 @@ def generateALeaf():
                 hisFreshlyChuckedLittleMen = extensionRule(ourLittleMan, theMen + nextGeneration)
                 for newManOnTheScene in hisFreshlyChuckedLittleMen:
                     lines.append(Line(ourLittleMan.x, ourLittleMan.y, newManOnTheScene.x, newManOnTheScene.y))
-                ourLittleMan.isInTheMood = False # He's finished
                 nextGeneration += hisFreshlyChuckedLittleMen
         return theMen +  nextGeneration
 
@@ -114,5 +97,3 @@ def generateALeaf():
 
 
 
-myLeaf = generateALeaf()
-drawGeometry(myLeaf)
