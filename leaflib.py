@@ -75,10 +75,8 @@ class LittleMan:
 
 
 
-def generateALeaf(extensionRule):
-    initialMan = LittleMan(250, 250, 0, "basic")
+def generateALeaf(extensionRule, theMen = [LittleMan(250, 250, 0, "basic")]):
     lines = []
-    theMen: list[LittleMan] = [initialMan]
 
     def addGeneration():
         nextGeneration: list[LittleMan] = []
